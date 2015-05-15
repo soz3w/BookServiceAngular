@@ -2,7 +2,7 @@
 
 var angularBookApp = angular.module('angularBookApp', ['ngRoute', 'ngResource']);
 
-angularBookApp.config(function ($routeProvider,$locationProvider) {
+angularBookApp.config(['$routeProvider','$locationProvider',function ($routeProvider,$locationProvider) {
     $routeProvider
         .when('/', {
             templateUrl: '/partials/books.html',
@@ -19,4 +19,4 @@ angularBookApp.config(function ($routeProvider,$locationProvider) {
         .otherwise({
             redirectTo: '/'
         });
-});
+}]);

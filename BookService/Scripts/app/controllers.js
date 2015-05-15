@@ -1,28 +1,15 @@
 ﻿"use strict";
 
-angularBookApp.controller("homeController", function ($scope) {
+angularBookApp.controller("homeController",['$scope',  function ($scope) {
 
     $scope.user = 'Saadna';
 
-});
+}]);
 
-angularBookApp.controller("BookController", function ($scope, BookService) {
+angularBookApp.controller("BookController", ['$scope', 'BookService', function ($scope, BookService) {
 
-    // display mode by default
-    $scope.tableView = false;
-    // icon by mode by default
-    $scope.tableViewIcon = 'icon-th-list icon-white';
-
-    // function called when changing view mode
-    $scope.toogleView = function () {
-        $scope.tableView = !$scope.tableView;
-
-        if ($scope.tableView === false) {
-            $scope.tableViewIcon = 'icon-th-list icon-white';
-        } else {
-            $scope.tableViewIcon = 'icon-th icon-white';
-        }
-    };
+   
+  
     $scope.books = BookService.fetch();
     //BookService.fetch().success(function (resp) {
     //    $scope.books = resp;
@@ -46,10 +33,10 @@ angularBookApp.controller("BookController", function ($scope, BookService) {
         //);
     };
 
-});
+}]);
 
 
-angularBookApp.controller("bookAddFormController", function ($scope, BookService,AuthorService) {
+angularBookApp.controller("bookAddFormController", ['$scope', 'BookService','AuthorService',function ($scope, BookService,AuthorService) {
     AuthorService.fetch().success(function (resp) {
         $scope.authors = resp;
         
@@ -83,8 +70,8 @@ angularBookApp.controller("bookAddFormController", function ($scope, BookService
                  });
 
     };
-});
-angularBookApp.controller("bookEditFormController", function ($scope, BookService, AuthorService, $routeParams, $location) {
+}]);
+angularBookApp.controller("bookEditFormController", ['$scope', 'BookService','AuthorService','$routeParams','$location',function ($scope, BookService, AuthorService, $routeParams, $location) {
     AuthorService.fetch().success(function (resp) {
         $scope.authors = resp;
 
@@ -131,4 +118,4 @@ angularBookApp.controller("bookEditFormController", function ($scope, BookServic
             });
 
     };
-});
+}]);

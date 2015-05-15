@@ -29,7 +29,7 @@ var reviews = Booking.reviews(); // Calls: GET /api/booking/?reviews_only=true
 
 "use strict";
 
-angularBookApp.factory("BookService", function ($http,$resource) {
+angularBookApp.factory("BookService", ['$http','$resource',function ($http,$resource) {
     var API_URI = '/api/books/';
     var booksResource = $resource(API_URI+":Id",
                                     {Id: "@Id" },
@@ -72,9 +72,9 @@ angularBookApp.factory("BookService", function ($http,$resource) {
 
     };
 
-});
+}]);
 
-angularBookApp.factory("AuthorService", function ($http) {
+angularBookApp.factory("AuthorService", ['$http',function ($http) {
     var API_URI = '/api/authors/';
 
     return {
@@ -101,4 +101,4 @@ angularBookApp.factory("AuthorService", function ($http) {
 
     };
 
-});
+}]);
