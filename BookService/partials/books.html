@@ -8,16 +8,16 @@
                 Add Book
             </button>
         </h1>
-        <section class="well form-inline">
+        <section class="row col-md-8">
             <input class="form-control" type="text" ng-model="search" placeholder="search">
             <section class="pull-right">
-                <button class="btn btn-info btn-sm" ng-click="tri = 'Title'; reverse = !reverse">Order by  Title</button>
-                <button class="btn btn-info btn-sm" ng-click="tri = 'AuthorName'; reverse = !reverse">Order by author</button>
+                <button class="btn btn-warning btn-sm" ng-click="tri = 'Title'; reverse = !reverse">Order by  Title</button>
+                <button class="btn btn-warning btn-sm" ng-click="tri = 'AuthorName'; reverse = !reverse">Order by author</button>
             </section>
         </section>
         
     </header>
-    <p> <span class="glyphicon glyphicon-search" aria-hidden="true"></span></p>
+ 
     <div class="row col-md-8">
         <table class="table table-striped table-condensed">
             <thead>
