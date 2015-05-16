@@ -8,7 +8,8 @@ angularBookApp.controller("homeController",['$scope',  function ($scope) {
 
 angularBookApp.controller("BookController", ['$scope', 'BookService', function ($scope, BookService) {
 
-   
+    
+    $scope.iconeSort = $scope.reverse ? "glyphicon glyphicon-triangle-bottom" : "glyphicon glyphicon-triangle-top";
   
     $scope.books = BookService.fetch();
     //BookService.fetch().success(function (resp) {
@@ -62,7 +63,7 @@ angularBookApp.controller("bookAddFormController", ['$scope', 'BookService','Aut
 
         BookService.create(book)
             .then(function (data) {
-                        $scope.books.push(newBook);
+                        $scope.books.push(data);
                         $scope.book = {};
             })
             .catch(function (resp) {
